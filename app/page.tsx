@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowDownRight, ArrowUpRight, Download, Github, Linkedin, Mail, Menu, Moon, Sun, X } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Download, Github, Linkedin, Mail, Menu, X } from "lucide-react";
 
 const links = {
   github: "https://github.com/Prajwal444",
@@ -20,11 +20,6 @@ const projects = [
   { no: "02", name: "QuickMart\nFresh", kind: "GROCERY DELIVERY PLATFORM", color: "violet", overview: "A complete grocery workflow that connects catalog, cart, orders, tracking, and customer notifications.", details: ["Product, cart, order, and user APIs", "Secure JWT-based access control", "Order tracking plus email notifications"], stack: "JAVA 17 / SPRING BOOT / REACT / MONGODB / MAVEN", repo: "https://github.com/Prajwal444/quickmart-fresh" },
 ];
 
-function ThemeToggle() {
-  const [night, setNight] = useState(false);
-  return <button className="theme-toggle" onClick={() => { setNight((active) => !active); document.documentElement.classList.toggle("night"); }} aria-label="Toggle colour mode">{night ? <Sun size={16} /> : <Moon size={16} />}</button>;
-}
-
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
@@ -32,7 +27,7 @@ export default function Home() {
     <header className="masthead page-shell">
       <a className="wordmark" href="#home" aria-label="Prajwal Sahare home"><span className="wordmark-symbol">P/</span><span>Prajwal<br />Sahare</span></a>
       <nav className={menuOpen ? "main-nav open" : "main-nav"} aria-label="Main navigation">{["Profile", "Projects", "Experience", "Contact"].map((item) => <a key={item} href={`#${item.toLowerCase()}`} onClick={closeMenu}>{item}</a>)}</nav>
-      <div className="mast-actions"><ThemeToggle /><a className="resume-link" href="/Prajwal-Sahare-Resume.pdf" download>CV <Download size={14} /></a><button className="menu-toggle" onClick={() => setMenuOpen((value) => !value)} aria-label="Toggle navigation">{menuOpen ? <X /> : <Menu />}</button></div>
+      <div className="mast-actions"><a className="resume-link" href="/Prajwal-Sahare-Resume.pdf" download>Download resume <Download size={14} /></a><button className="menu-toggle" onClick={() => setMenuOpen((value) => !value)} aria-label="Toggle navigation">{menuOpen ? <X /> : <Menu />}</button></div>
     </header>
 
     <section id="home" className="hero page-shell">
